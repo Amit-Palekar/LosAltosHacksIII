@@ -6,11 +6,14 @@
     <title>Places Searchbox</title>
     <link href="style.css" type="text/css" rel="stylesheet" />
     <script src="https://cdn-webgl.wrld3d.com/wrldjs/dist/latest/wrld.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" rel="stylesheet" />
     <link href="https://cdn-webgl.wrld3d.com/wrldjs/addons/resources/latest/css/wrld.css" rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
     <script src="https://cdn-webgl.wrld3d.com/wrldjs/addons/indoor_control/latest/indoor_control.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
@@ -18,17 +21,15 @@
       <div id="map"></div>
       <div style="position:relative;">
         <div id="widget-container" class="wrld-widget-container"></div>
-        <button style="position: absolute; z-index: 20" onclick="exitIndoors()">Exit Indoor Map</button>
+        <!--<button style="position: absolute; z-index: 20" onclick="exitIndoors()">Exit Indoor Map</button>-->
         <div id="map2"></div>
       </div>
     </div>
     <div id="fire-section">
-      <h1 class="center"> Important shit </h1>
-      <ul id="important">
-        <li class="center"> Ask the girl of my dreams to JP</li>
-        <li class="center"> Do it with Kevin's mom </li>
-        <li class="center"> bitchass</li>
-      </ul>
+      <h1 class="center" id="header"> Notes </h1>
+      <textarea id="area" rows="10" cols="50"></textarea>
+      <button id="save" class="btn btn-primary">Save</button>
+      <button id="clear" class="btn btn-danger">Clear</button>
     </div>
     <script src="script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQHhU2xyURarwI5aWw-XNoqSPen0rKOWM&libraries=places&callback=initAutocomplete"async defer></script>

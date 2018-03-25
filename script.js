@@ -29,6 +29,13 @@ function addCustomEntranceMarker(event) {
   });
 }
 
+var marker = L.marker([37.781941, -122.404752], {
+        title: "This is indoors!",
+        indoorMapId: "intercontinental_hotel_8628",
+        indoorMapFloorId: 1
+      }).addTo(map2);
+
+
 map2.indoors.on("indoorentranceadd", addCustomEntranceMarker);
 var indoorControl = new WrldIndoorControl("widget-container", map2);
 
@@ -97,10 +104,18 @@ function initAutocomplete() {
       newMarker.addListener('click', function() {
         console.log('dfs');
         console.log();
-        map2.setView([this.getPosition().lat(), this.getPosition().lng()], 19, {
+        map2.setView([this.getPosition().lat(), this.getPosition().lng()], 16, {
           animate: false
         });
-        var marker = L.marker([this.getPosition().lat(), this.getPosition().lng()], { title: "ddfs" }).addTo(map2);
+        var intersection = map2.buildings.findBuildingAtLatLng([this.getPosition().lat(), this.getPosition().lng()]);
+        if (intersection.found) {
+            L.marker([this.getPosition().lat(), this.getPosition().lng()], {
+                    elevation: intersection.point.alt,
+                    title: input.value
+               }).addTo(map2);
+        } else {
+          L.marker([this.getPosition().lat(), this.getPosition().lng()], { title: input.value }).addTo(map2);
+        }
       });
       markers.push(newMarker);
 
@@ -114,3 +129,11 @@ function initAutocomplete() {
     map.fitBounds(bounds);
   });
 }
+
+$('#save').click(function(event) {
+  alert("Text saved");
+});
+
+$('#clear').click(function(event) {
+  $('#area').val('');
+});

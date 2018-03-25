@@ -15,7 +15,7 @@ html, body{
 }
 
 #container{
-  width: 50%;
+  width: 70%;
   height: 100%;
   min-height: 384px;
   display: inline-block;
@@ -94,17 +94,49 @@ html, body{
 
 #fire-section{
   float: right;
-  background-color: red;
-  width: 50%;
+  background-size: cover;
+  background-image: url('https://i.pinimg.com/474x/3b/b3/2c/3bb32c7f960487a056a864aecf27e6f3--abstract-iphone-wallpaper-ipod-wallpaper.jpg');
+  background-repeat: no-repeat;
+  color: white;
+  width: 30%;
   height: 100%;
   text-align: center;
+}
+
+@font-face {
+    font-family: coolFont;
+    src: url(cool_font.ttf);
 }
 
 .center{
   text-align: center;
   list-style-type: none;
+  font-family: Roboto;
+  line-height: 1em;
 }
 
 #important{
   padding: 0;
+}
+
+#area{
+  margin: auto;
+  width: 85%;
+  display: block;
+  color: black;
+  font-weight: coolFont;
+}
+
+#save{
+  width: 40%;
+  margin: 7px;
+}
+
+#clear{
+  width: 40%;
+  margin: 10px;
+}
+
+#header{
+  margin-top: 40%;
 }
